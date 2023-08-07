@@ -1,8 +1,9 @@
 ﻿using AbstractFactoryCSharp;
 
-Country country = Country.SPAIN;
-ILanguage language = InternationalProvider.CreateLanguage(country);
-ICapitalCity capital = InternationalProvider.CreateCapital(country);
+Country country = Country.Spain;
+IInternationalFactory factory = InternationalProvider.Create(country);
+ILanguage language = factory.CreateLanguage();
+ICapitalCity capital = factory.CreateCapital();
 
 Console.WriteLine(country);
 Console.WriteLine(capital.GetType().Name);

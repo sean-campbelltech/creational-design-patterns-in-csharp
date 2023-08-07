@@ -7,33 +7,18 @@ namespace AbstractFactoryCSharp
 {
     public class InternationalProvider
     {
-        public static ILanguage CreateLanguage(Country country)
+        public static IInternationalFactory Create(Country country)
         {
             switch (country)
             {
-                case Country.ENGLAND:
-                    return new English();
+                case Country.England:
+                    return new EnglandFactory();
 
-                case Country.SPAIN:
-                    return new Spanish();
-
-                default:
-                    throw new InvalidOperationException($"Country invalid {country}!");
-            }
-        }
-
-        public static ICapitalCity CreateCapital(Country country)
-        {
-            switch (country)
-            {
-                case Country.ENGLAND:
-                    return new London();
-
-                case Country.SPAIN:
-                    return new Madrid();
+                case Country.Spain:
+                    return new SpainFactory();
 
                 default:
-                    throw new InvalidOperationException($"Country invalid {country}!");
+                    throw new NotSupportedException($"{country} is not currently supported.");
             }
         }
     }
