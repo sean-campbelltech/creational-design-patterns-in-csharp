@@ -1,4 +1,4 @@
-namespace AbstractFactoryCSharp
+namespace abstractfactory
 {
     public enum Country
     {

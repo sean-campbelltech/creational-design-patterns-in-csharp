@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AbstractFactoryCSharp;
 
-namespace AbstractFactoryCSharp
+namespace abstractfactory
 {
     public class InternationalProvider
     {
@@ -18,7 +19,7 @@ namespace AbstractFactoryCSharp
                     return new SpainFactory();
 
                 default:
-                    throw new NotSupportedException($"{country} is not currently supported.");
+                    throw new NotSupportedException($"{country} not yet supported.");
             }
         }
     }

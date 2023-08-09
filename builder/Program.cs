@@ -1,13 +1,14 @@
-﻿using FluentBuilderCSharp;
+﻿// Director
+using Builder;
 
-SocialMediaPost post = new SocialMediaPostBuilder()
-                            .AddTitle("The Builder Pattern")
-                            .AddContent("Add the definition of a builder here")
-                            .AddAuthor("Sean Campbell")
-                            .AddTag("#designpatterns")
-                            .AddTag("#csharp")
-                            .SetPostDate(System.DateTime.Now)
-                            .AddLink(new Uri("https://somelink.io"))
-                            .Build();
+Email email = new EmailBuilder()
+        .AddFrom("info@campbelltech.co.za")
+        .AddTo("john@gmail.com")
+        .AddTo("jane@yahoo.com")
+        .AddCc("jones@campbelltech.io")
+        .WithSubject("Builder Design Pattern Tutorial")
+        .WithBody("Check out this awesome blog on the Builder Pattern")
+        .AddAttachment("Builder-Pattern.pdf")
+        .Build();
 
-Console.WriteLine(post.ToString());
+email.Send();
